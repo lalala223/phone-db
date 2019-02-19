@@ -4,7 +4,7 @@
 #### 数据表结构
 
 ##### phones表
-```sql
+```
 CREATE TABLE phones (
 	id INTEGER NOT NULL, 
 	number INTEGER, 
@@ -16,7 +16,7 @@ CREATE TABLE phones (
 ```
 
 ##### regions表
-```sql
+```
 CREATE TABLE regions (
 	id INTEGER NOT NULL, 
 	province VARCHAR, 
@@ -28,7 +28,7 @@ CREATE TABLE regions (
 ```
 
 #### 使用：
-```python
+```
 from phone_db import Session, Phone, Region
 session = Session()
 session.query(Phone).count()
