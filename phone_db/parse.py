@@ -59,7 +59,6 @@ class ParsePhone(SourcePhone):
             number, region_offset, phone_type = struct.unpack(self.phone_fmt, buffer)
             p = Phone(number=number, type=phone_type,
                       region_id=mapping[str(region_offset)])
-
             self.session.add(p)
             self.session.commit()
             current_offset += self.phone_fmt_length
