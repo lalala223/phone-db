@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
+import os
 from sqlalchemy import create_engine, \
     Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
 
-engine = create_engine('sqlite:///phone.db')
+db_path = os.path.join(os.path.dirname(__file__), 'phone.db')
+engine = create_engine('sqlite:///' + db_path)
 Session = sessionmaker(bind=engine)
 Base = declarative_base()
 
