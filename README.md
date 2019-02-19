@@ -4,7 +4,7 @@
 #### 使用：
 
 ```
-from Phone_db import Session, Phone, Region
+from phone_db import Session, Phone, Region
 session = Session()
 session.query(Phone).count()
 ```
