@@ -3,7 +3,7 @@ import unittest
 from model import Session, Phone, Region
 
 
-class TestPhone(unittest.TestCase):
+class TestModel(unittest.TestCase):
 
     def setUp(self):
         self.session = Session()
