@@ -16,10 +16,7 @@ class TestModel(unittest.TestCase):
         p = self.session.query(Phone).filter_by(number=1761166).first()
         self.assertEqual(p.number, 1761166)
         self.assertEqual(p.type, 2)
-        self.assertEqual(p.region.zip_code, '100000')
-        self.assertEqual(p.region.area_code, '010')
-        self.assertEqual(p.region.city, '北京')
-        self.assertEqual(p.region.province, '北京')
+        self.assertIsInstance(p.region, Region)
 
     def test_region(self):
         r = self.session.query(Region).filter_by(zip_code='100000').first()
