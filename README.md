@@ -1,5 +1,5 @@
 # phone-db
-手机号码归属地数据库
+手机号码归属地SQLite数据库
 
 #### 使用：
 
@@ -7,7 +7,6 @@
 from Phone_db import Session, Phone, Region
 session = Session()
 session.query(Phone).count()
-
 ```
 
 #### 记录条数
