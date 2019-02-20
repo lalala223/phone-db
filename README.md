@@ -61,7 +61,7 @@ PRIMARY KEY (id)
 ```
 
 #### 数据可视化
-下载[phone.db]文件(https://raw.githubusercontent.com/lalala223/phone-db/master/phone_db/phone.db)使用[sqlitebrowser](https://github.com/sqlitebrowser/sqlitebrowser)查看
+下载[phone.db](https://raw.githubusercontent.com/lalala223/phone-db/master/phone_db/phone.db)文件，使用[sqlitebrowser](https://github.com/sqlitebrowser/sqlitebrowser)查看
 
 #### 记录条数
 
