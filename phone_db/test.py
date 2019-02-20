@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 import unittest
+from sqlalchemy.orm.dynamic import AppenderQuery
 from model import Session, Phone, Region
 
 
-class TestPhone(unittest.TestCase):
+class TestModel(unittest.TestCase):
 
     def setUp(self):
         self.session = Session()
@@ -13,21 +14,17 @@ class TestPhone(unittest.TestCase):
 
     def test_phone(self):
         p = self.session.query(Phone).filter_by(number=1761166).first()
-        res = p.detail()
-        self.assertEqual(res[0], 1761166)
-        self.assertEqual(res[1], '联通')
-        self.assertEqual(res[2]['zip_code'], '100000')
-        self.assertEqual(res[2]['area_code'], '010')
-        self.assertEqual(res[2]['city'], '北京')
-        self.assertEqual(res[2]['province'], '北京')
+        self.assertEqual(p.number, 1761166)
+        self.assertEqual(p.type, 2)
+        self.assertIsInstance(p.region, Region)
 
     def test_region(self):
-        p = self.session.query(Region).filter_by(zip_code='100000').first()
-        res = p.content()
-        self.assertEqual(res['zip_code'], '100000')
-        self.assertEqual(res['area_code'], '010')
-        self.assertEqual(res['city'], '北京')
-        self.assertEqual(res['province'], '北京')
+        r = self.session.query(Region).filter_by(zip_code='100000').first()
+        self.assertEqual(r.zip_code, '100000')
+        self.assertEqual(r.area_code, '010')
+        self.assertEqual(r.city, '北京')
+        self.assertEqual(r.province, '北京')
+        self.assertIsInstance(r.phones, AppenderQuery)
 
 
 if __name__ == '__main__':

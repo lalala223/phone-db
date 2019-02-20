@@ -2,4 +2,3 @@
 from .model import Phone, Region, Session
 
 __all__ = ['Phone', 'Region', 'Session']
-

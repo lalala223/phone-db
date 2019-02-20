@@ -19,7 +19,7 @@ class Region(Base):
     city = Column(String)
     zip_code = Column(String)
     area_code = Column(String)
-    phones = relationship("Phone", lazy='dynamic', backref='region')
+    phones = relationship('Phone', lazy='dynamic', backref='region')
 
     def content(self):
         return {
@@ -34,24 +34,24 @@ class Phone(Base):
     """手机号段"""
     __tablename__ = 'phones'
     id = Column(Integer, primary_key=True)
-    number = Column(Integer)
+    number = Column(Integer, index=True)
     type = Column(Integer)
     region_id = Column(Integer, ForeignKey('regions.id'))
 
     @staticmethod
     def get_phone_no_type(no):
         if no == 4:
-            return "电信虚拟运营商"
+            return '电信虚拟运营商'
         if no == 5:
-            return "联通虚拟运营商"
+            return '联通虚拟运营商'
         if no == 6:
-            return "移动虚拟运营商"
+            return '移动虚拟运营商'
         if no == 3:
-            return "电信"
+            return '电信'
         if no == 2:
-            return "联通"
+            return '联通'
         if no == 1:
-            return "移动"
+            return '移动'
 
     def detail(self):
         return (
@@ -62,8 +62,3 @@ class Phone(Base):
 
 
 Base.metadata.create_all(engine)
-
-if __name__ == '__main__':
-    session = Session()
-    count = session.query(Phone).count()
-    print(count)

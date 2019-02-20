@@ -15,7 +15,7 @@ class ParseRegion(SourcePhone):
         self.session = Session()
 
     def _save_mapping(self):
-        file = os.path.join(os.path.dirname(__file__), "mapping.json")
+        file = os.path.join(os.path.dirname(__file__), 'mapping.json')
         with open(file, 'w') as f:
             f.write(json.dumps(self.mapping))
 
@@ -44,7 +44,7 @@ class ParsePhone(SourcePhone):
         self.session = Session()
 
     def _read_mapping(self):
-        file = os.path.join(os.path.dirname(__file__), "mapping.json")
+        file = os.path.join(os.path.dirname(__file__), 'mapping.json')
         if not os.path.exists(file):
             raise RuntimeError('mapping.json is not exists')
         with open(file, 'r') as f:
@@ -59,7 +59,6 @@ class ParsePhone(SourcePhone):
             number, region_offset, phone_type = struct.unpack(self.phone_fmt, buffer)
             p = Phone(number=number, type=phone_type,
                       region_id=mapping[str(region_offset)])
-
             self.session.add(p)
             self.session.commit()
             current_offset += self.phone_fmt_length
