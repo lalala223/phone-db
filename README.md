@@ -6,7 +6,7 @@
 pip install phone-db
 ```
 
-#### 使用：
+#### 使用
 查询数据库中手机号段总条数
 ```
 >>> from phone_db import Session, Phone, Region
