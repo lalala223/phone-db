@@ -7,7 +7,7 @@ pip install phone-db
 ```
 
 #### 使用：
-##### 查询数据库中手机号段总条数
+查询数据库中手机号段总条数
 ```
 >>> from phone_db import Session, Phone, Region
 >>> session = Session()
@@ -15,7 +15,7 @@ pip install phone-db
 415284
 ```
 
-##### 查询北京市联通手机号段总条数
+查询北京市联通手机号段总条数
 ```
 >>> city = session.query(Region).filter_by(zip_code='100000').first()
 >>> if city:
@@ -24,7 +24,7 @@ pip install phone-db
 6355
 ```
 
-##### 查询指定手机号段归属地信息
+查询指定手机号段归属地信息
 ```
 >>> num = session.query(Phone).filter_by(number=1761166).first()
 >>> if num:
@@ -35,7 +35,7 @@ pip install phone-db
 
 #### 数据表结构
 
-##### phones表
+phones表
 ```
 id INTEGER NOT NULL,
 number INTEGER,
@@ -45,7 +45,7 @@ PRIMARY KEY (id),
 FOREIGN KEY(region_id) REFERENCES regions (id)
 ```
 
-##### regions表
+regions表
 ```
 id INTEGER NOT NULL,
 province VARCHAR,
