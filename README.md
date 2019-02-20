@@ -1,4 +1,4 @@
-## phone-db
+# phone-db
 手机号码归属地SQLite数据库
 
 #### 使用：
@@ -10,7 +10,7 @@
 415284
 ```
 
-###### 查询北京市联通手机号段条数
+##### 查询北京市联通手机号段条数
 ```
 >>> city = session.query(Region).filter_by(zip_code='100000').first()
 >>> if city:
@@ -60,8 +60,8 @@ PRIMARY KEY (id)
 * 6 移动虚拟运营商
 ```
 
-#### 使用sqlitebrowser一目了然查看[phone.db](https://raw.githubusercontent.com/lalala223/phone-db/master/phone_db/phone.db)
-[https://github.com/sqlitebrowser/sqlitebrowser](https://github.com/sqlitebrowser/sqlitebrowser)
+#### 数据可视化
+下载[phone.db]文件(https://raw.githubusercontent.com/lalala223/phone-db/master/phone_db/phone.db)使用[sqlitebrowser](https://github.com/sqlitebrowser/sqlitebrowser)查看
 
 #### 记录条数
 
