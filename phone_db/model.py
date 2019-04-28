@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 import os
-from sqlalchemy import create_engine, \
-    Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
+from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
 
 db_path = os.path.join(os.path.dirname(__file__), 'phone.db')
 engine = create_engine('sqlite:///' + db_path)
@@ -12,7 +11,9 @@ Base = declarative_base()
 
 
 class Region(Base):
-    """归属地"""
+    """
+    归属地
+    """
     __tablename__ = 'regions'
     id = Column(Integer, primary_key=True)
     province = Column(String)
@@ -31,7 +32,9 @@ class Region(Base):
 
 
 class Phone(Base):
-    """手机号段"""
+    """
+    手机号段
+    """
     __tablename__ = 'phones'
     id = Column(Integer, primary_key=True)
     number = Column(Integer, index=True)
